@@ -8,7 +8,20 @@ public class Warehouse {
     public Warehouse(Tasks allProducts) {
         this.allProducts = allProducts;
     }
-public void getTable() { System.out.printf("%-36s %-15s %-8s %-20s %-20s %-6s %-12s%n", "ID", "Name", "Price €", "Created", "Last updated", "Units", "Expiration"); for (Map<String, Object> product : allProducts.getAllProducts()) { double price = ((Number)product.get("price")).doubleValue() / 100.0; System.out.printf("%-36s %-15s %-8.2f %-20s %-20s %-6d %-12s%n", product.get("id"), product.get("name"), price, product.get("createdAt"), product.get("updatedAt"), ((Number)product.get("units")).intValue(), product.get("expiredAt")); } }
+    public void getTable() { 
+        System.out.printf("%-36s %-15s %-8s %-20s %-20s %-6s %-12s%n", "ID", "Name", "Price €", "Created", "Last updated", "Units", "Expiration"); 
+        for (Map<String, Object> product : allProducts.getAllProducts()) { 
+            double price = ((Number)product.get("price")).doubleValue() / 100.0; 
+            System.out.printf("%-36s %-15s %-8.2f %-20s %-20s %-6d %-12s%n", 
+                              product.get("id"), 
+                              product.get("name"), 
+                              price, 
+                              product.get("createdAt"), 
+                              product.get("updatedAt"), 
+                              ((Number)product.get("units")).intValue(), 
+                              product.get("expiredAt")); 
+        } 
+    }
 
     public void getChanges() {
         System.out.printf("%-10s %-10s %-36s %-15s %-6s %-20s%n",
